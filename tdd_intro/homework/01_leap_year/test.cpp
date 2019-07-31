@@ -35,3 +35,8 @@ TEST(LeapYearTest, When_MultipleToFourHundredYear_ReturnTrue) {
     unsigned random_year = rand() % MAX_RAND_VALUE * 400;
     ASSERT_EQ(true, is_leap_year(random_year));
 }
+
+TEST(LeapYearTest, When_NotMultipleToFourYear_ReturnFalse) {
+    unsigned random_year = rand() % MAX_RAND_VALUE * 4 + 1;
+    ASSERT_EQ(false, is_leap_year(random_year));
+}
