@@ -13,7 +13,6 @@ If your language provides a method in the standard library that does this look-u
 */
 
 #include <gtest/gtest.h>
-#include <ctime>
 #include <cstdlib>
 
 bool is_leap_year(unsigned year) {
@@ -21,7 +20,6 @@ bool is_leap_year(unsigned year) {
 }
 
 TEST(LeapYearTest, When_MultipleToFourYear_ReturnTrue) {
-    srand(time(0));
     int random_year = rand() * 4;
     ASSERT_EQ(true, is_leap_year(random_year));
 }
