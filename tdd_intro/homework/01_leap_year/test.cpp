@@ -13,3 +13,15 @@ If your language provides a method in the standard library that does this look-u
 */
 
 #include <gtest/gtest.h>
+#include <ctime>
+#include <cstdlib>
+
+bool is_leap_year(int year) {
+    return year % 400;
+}
+
+TEST(LeapYearTest, When_MultipleToFourHundredYear_ReturnTrue) {
+    srand(time(0));
+    int random_year = rand() * 400;
+    ASSERT_EQ(true, is_leap_year(random_year));
+}
