@@ -23,3 +23,8 @@ TEST(LeapYearTest, When_MultipleToFourYear_ReturnTrue) {
     int random_year = rand() * 4;
     ASSERT_EQ(true, is_leap_year(random_year));
 }
+
+TEST(LeapYearTest, When_MultipleToOneHundredYear_ReturnFalse) {
+    int random_year = rand() * 100;
+    ASSERT_EQ(false, is_leap_year(random_year));
+}
