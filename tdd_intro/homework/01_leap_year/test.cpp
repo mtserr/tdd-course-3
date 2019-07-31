@@ -14,9 +14,10 @@ If your language provides a method in the standard library that does this look-u
 
 #include <gtest/gtest.h>
 #include <cstdlib>
+#include <climits>
 
 bool is_leap_year(unsigned year) {
-    return year % 4 == 0;
+    return (year % 4 == 0) && (year % 100 != 0);
 }
 
 TEST(LeapYearTest, When_MultipleToFourYear_ReturnTrue) {
@@ -25,6 +26,6 @@ TEST(LeapYearTest, When_MultipleToFourYear_ReturnTrue) {
 }
 
 TEST(LeapYearTest, When_MultipleToOneHundredYear_ReturnFalse) {
-    int random_year = rand() * 100;
+    int random_year = rand() % 3000 * 100;
     ASSERT_EQ(false, is_leap_year(random_year));
 }
