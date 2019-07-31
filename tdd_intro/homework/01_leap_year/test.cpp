@@ -14,12 +14,11 @@ If your language provides a method in the standard library that does this look-u
 
 #include <gtest/gtest.h>
 #include <cstdlib>
-#include <climits>
 
 const unsigned MAX_RAND_VALUE = 3000;
 
 bool is_leap_year(unsigned year) {
-    return (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
+    return (year % 400 == 0) || (year % 4 == 0) && (year % 100 != 0);
 }
 
 TEST(LeapYearTest, When_MultipleToFourYear_ReturnTrue) {
