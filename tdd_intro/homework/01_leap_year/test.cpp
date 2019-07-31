@@ -18,25 +18,25 @@ If your language provides a method in the standard library that does this look-u
 const unsigned MAX_RAND_VALUE = 3000;
 
 bool is_leap_year(unsigned year) {
-    return (year % 400 == 0) || (year % 4 == 0) && (year % 100 != 0);
+    return (year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0));
 }
 
-TEST(LeapYearTest, When_MultipleToFourYear_ReturnTrue) {
+TEST(LeapYearTest, When_MultipleToFourYear_Return_True) {
     unsigned random_year = rand() % MAX_RAND_VALUE * 4;
     ASSERT_EQ(true, is_leap_year(random_year));
 }
 
-TEST(LeapYearTest, When_MultipleToOneHundredYear_ReturnFalse) {
+TEST(LeapYearTest, When_MultipleToOneHundredYear_Return_False) {
     unsigned random_year = rand() % MAX_RAND_VALUE * 100;
     ASSERT_EQ(false, is_leap_year(random_year));
 }
 
-TEST(LeapYearTest, When_MultipleToFourHundredYear_ReturnTrue) {
+TEST(LeapYearTest, When_MultipleToFourHundredYear_Return_True) {
     unsigned random_year = rand() % MAX_RAND_VALUE * 400;
     ASSERT_EQ(true, is_leap_year(random_year));
 }
 
-TEST(LeapYearTest, When_NotMultipleToFourYear_ReturnFalse) {
+TEST(LeapYearTest, When_NotMultipleToFourYear_Return_False) {
     unsigned random_year = rand() % MAX_RAND_VALUE * 4 + 1;
     ASSERT_EQ(false, is_leap_year(random_year));
 }
