@@ -16,16 +16,18 @@ If your language provides a method in the standard library that does this look-u
 #include <cstdlib>
 #include <climits>
 
+const unsigned MAX_RAND_VALUE = 3000;
+
 bool is_leap_year(unsigned year) {
     return (year % 4 == 0) && (year % 100 != 0);
 }
 
 TEST(LeapYearTest, When_MultipleToFourYear_ReturnTrue) {
-    int random_year = rand() * 4;
+    unsigned random_year = rand() % MAX_RAND_VALUE * 4;
     ASSERT_EQ(true, is_leap_year(random_year));
 }
 
 TEST(LeapYearTest, When_MultipleToOneHundredYear_ReturnFalse) {
-    int random_year = rand() % 3000 * 100;
+    unsigned random_year = rand() % MAX_RAND_VALUE * 100;
     ASSERT_EQ(false, is_leap_year(random_year));
 }
